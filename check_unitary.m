@@ -1,0 +1,24 @@
+%CHECK_UNITARY  Checks whether a given transformation matrix is unitary.
+%
+%   CHECK_UNITARY(M) Checks whether a given transformation matrix is unitary.
+%       M:           the transformation matrix to be checked.
+%       return:      nothing. But if the matrix is not unitary, a error
+%                    message will be displayed.
+
+%   Copyright 2013, Haixing Hu.
+%   Department of Computer Science & Technology, Nanjing University, China.
+function check_unitary(M)
+    d = size(M);
+    if length(d) ~= 2
+        disp('ERROR: Invalid dimension of the transformation matrix.');
+    elseif (d(1) ~= d(2))
+        disp('ERROR: The number of rows and columns of the transformation matrix are not equal.'); 
+    else
+        A = M' * M;
+        if A ~= eye(d(1))
+            disp('ERROR: The transformation matrix is not unitary.');
+        else
+            disp('OK: The transformation matrix is unitary.');
+        end        
+    end
+end
