@@ -10,13 +10,13 @@
 function check_unitary(M)
     d = size(M);
     if length(d) ~= 2
-        disp('ERROR: Invalid dimension of the transformation matrix.');
+        error('ERROR: Invalid dimension of the transformation matrix.');
     elseif (d(1) ~= d(2))
-        disp('ERROR: The number of rows and columns of the transformation matrix are not equal.'); 
+        error('ERROR: The number of rows and columns of the transformation matrix are not equal.'); 
     else
         A = M' * M;
         if A ~= eye(d(1))
-            disp('ERROR: The transformation matrix is not unitary.');
+            error('ERROR: The transformation matrix is not unitary.');
         else
             disp('OK: The transformation matrix is unitary.');
         end        
